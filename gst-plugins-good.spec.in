@@ -23,6 +23,7 @@ BuildRequires:  gcc-c++
 @USE_FLAC_TRUE@BuildRequires: flac-devel >= 1.0.3
 @USE_JPEG_TRUE@BuildRequires: libjpeg-devel
 @USE_LIBCACA_TRUE@BuildRequires: libcaca-devel
+@USE_LIBDE265_TRUE@BuildRequires: libde265-devel
 @USE_LIBDV_TRUE@BuildRequires: libdv-devel
 @USE_LIBPNG_TRUE@BuildRequires: libpng-devel >= 1.2.0
 @USE_OSS_TRUE@BuildRequires: glibc-devel
@@ -136,6 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 
 # gstreamer-plugins with external dependencies but in the main package
 @USE_LIBCACA_TRUE@%{_libdir}/gstreamer-%{majorminor}/libgstcacasink.so
+@USE_LIBDE265_TRUE@%{_libdir}/gstreamer-%{majorminor}/libgstlibde265.so
 @USE_FLAC_TRUE@%{_libdir}/gstreamer-%{majorminor}/libgstflac.so
 @USE_JACK_TRUE@%{_libdir}/gstreamer-%{majorminor}/libgstjack.so
 @USE_JPEG_TRUE@%{_libdir}/gstreamer-%{majorminor}/libgstjpeg.so

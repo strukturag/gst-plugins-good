@@ -40,6 +40,12 @@ else
 LIBCACA_DIR =
 endif
 
+if USE_LIBDE265
+LIBDE265_DIR = libde265
+else
+LIBDE265_DIR =
+endif
+
 if USE_LIBDV
 LIBDV_DIR = dv
 else
@@ -116,6 +122,7 @@ SUBDIRS = \
 	$(JACK_DIR) \
 	$(JPEG_DIR) \
 	$(LIBCACA_DIR) \
+	$(LIBDE265_DIR) \
 	$(LIBDV_DIR) \
 	$(LIBMNG_DIR) \
 	$(LIBPNG_DIR) \
@@ -137,6 +144,7 @@ DIST_SUBDIRS = \
 	jack \
 	jpeg \
 	libcaca \
+	libde265 \
 	libpng \
 	pulse \
 	raw1394 \

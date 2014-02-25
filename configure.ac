@@ -764,6 +764,16 @@ AG_GST_CHECK_FEATURE(LIBCACA, [libcaca coloured ASCII art], cacasink, [
   AG_GST_PKG_CHECK_MODULES(LIBCACA, caca)
 ])
 
+dnl *** libde265 ***
+translit(dnm, m, l) AM_CONDITIONAL(USE_LIBDE265, true)
+AG_GST_CHECK_FEATURE(LIBDE265, [libde265 HEVC/H.265 decoder], libde265, [
+  OLD_LIBS="$LIBS"
+  AC_CHECK_LIB(de265, de265_new_decoder, HAVE_LIBDE265="yes", HAVE_LIBDE265="no")
+  LIBDE265_LIBS="-lde265"
+  LIBS="$OLD_LIBS"
+  AC_SUBST(LIBDE265_LIBS)
+])
+
 dnl *** libdv ***
 translit(dnm, m, l) AM_CONDITIONAL(USE_LIBDV, true)
 AG_GST_CHECK_FEATURE(LIBDV, [libdv DV demuxer/decoder], dv, [
@@ -1006,6 +1016,7 @@ AM_CONDITIONAL(USE_GST_V4L2, false)
 AM_CONDITIONAL(USE_JACK, false)
 AM_CONDITIONAL(USE_JPEG, false)
 AM_CONDITIONAL(USE_LIBCACA, false)
+AM_CONDITIONAL(USE_LIBDE265, false)
 AM_CONDITIONAL(USE_LIBDV, false)
 AM_CONDITIONAL(USE_LIBIEC61883, false)
 AM_CONDITIONAL(USE_LIBPNG, false)
@@ -1148,6 +1159,7 @@ ext/gdk_pixbuf/Makefile
 ext/jack/Makefile
 ext/jpeg/Makefile
 ext/libcaca/Makefile
+ext/libde265/Makefile
 ext/libpng/Makefile
 ext/pulse/Makefile
 ext/raw1394/Makefile
